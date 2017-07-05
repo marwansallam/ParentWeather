@@ -1,9 +1,9 @@
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wbg"
     tools:context=".Controllers.MainActivity">
 
     <RelativeLayout
@@ -11,21 +11,27 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/your_cities_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/search_shape"
             android:padding="20dp"
             android:text="Your Cities :"
             android:textAllCaps="true"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:id="@+id/your_cities_text_view" />
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <ListView
             android:id="@+id/user_cities_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/your_cities_text_view"></ListView>
+            android:layout_below="@+id/your_cities_text_view"
+            android:layout_margin="10dp"
+            android:descendantFocusability="blocksDescendants"></ListView>
     </RelativeLayout>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"

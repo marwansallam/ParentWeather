@@ -1,4 +1,5 @@
 package com.marwansallam.parentweather.Models;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -15,6 +16,11 @@ public class City {
     @SerializedName("name")
     @Expose
     private String name;
+
+    @SerializedName("country")
+    @Expose
+    private String country;
+
 
     public int getId() {
         return id;

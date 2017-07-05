@@ -1,11 +1,14 @@
 package com.marwansallam.parentweather.Controllers;
+
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import com.marwansallam.parentweather.R;
 
 
@@ -21,7 +24,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        loadCitiesFragment();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadCitiesFragment();
+            }
+        }, 1000);
     }
 
     public void loadCitiesFragment() {
@@ -31,9 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadFragmentAction(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left,R.anim.enter_from_left, R.anim.exit_to_right);
+        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
         transaction.replace(R.id.fragment_placeholder, fragment);
-        transaction.addToBackStack(null);
         transaction.commit();
     }
 

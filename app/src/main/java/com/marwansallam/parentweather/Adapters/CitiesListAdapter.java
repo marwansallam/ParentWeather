@@ -7,14 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.daimajia.swipe.SimpleSwipeListener;
-import com.daimajia.swipe.SwipeLayout;
-import com.daimajia.swipe.adapters.BaseSwipeAdapter;
 import com.marwansallam.parentweather.Models.City;
 import com.marwansallam.parentweather.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -24,15 +19,8 @@ import java.util.ArrayList;
 
 public class CitiesListAdapter extends ArrayAdapter<City> implements View.OnClickListener {
 
-    private ArrayList<City> dataSet;
     Context mContext;
-    BaseSwipeAdapter baseSwipeAdapter;
-
-    // View lookup cache
-    private static class ViewHolder {
-        TextView cityName;
-        ImageView citylogo;
-    }
+    private ArrayList<City> dataSet;
 
     public CitiesListAdapter(Context context, ArrayList<City> cities) {
         super(context, R.layout.list_item_city, cities);
@@ -43,13 +31,10 @@ public class CitiesListAdapter extends ArrayAdapter<City> implements View.OnClic
     @Override
     public void onClick(View v) {
         int position = (Integer) v.getTag();
-        Object object = getItem(position);
     }
 
-    private int lastPosition = -1;
-
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
         City city = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
@@ -67,18 +52,13 @@ public class CitiesListAdapter extends ArrayAdapter<City> implements View.OnClic
             viewHolder = (ViewHolder) convertView.getTag();
             result = convertView;
         }
-        lastPosition = position;
         viewHolder.cityName.setText(city.getName());
-        viewHolder.cityName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext, "Hiiiiiiiß", Toast.LENGTH_SHORT).show();
-            }
-        });
-        Picasso.with(this.getContext()).load("https://ssl.gstatic.com/onebox/weather/48/sunny.png").into(viewHolder.citylogo);
-
         return convertView;
+    }
 
-
+    // View lookup cache
+    private static class ViewHolder {
+        TextView cityName;
+        ImageView citylogo;
     }
 }
