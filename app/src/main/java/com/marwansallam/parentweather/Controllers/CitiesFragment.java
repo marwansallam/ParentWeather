@@ -160,7 +160,7 @@ public class CitiesFragment extends Fragment {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                return null;
+                return "";
             }
             return city;
         }

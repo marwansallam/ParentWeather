@@ -56,7 +56,7 @@ public class SearchFragment extends Fragment {
             ArrayList<Weather> weathersArrayList = new ArrayList<Weather>();
             String data = ((new WeatherFetcher()).getWeatherData(params[0]));
             try {
-                if (data.equals(null) || data.isEmpty()) {
+                if (data.isEmpty()) {
                     Toast.makeText(getContext(), "No internet Connection", Toast.LENGTH_SHORT).show();
                     getActivity().onBackPressed();
                 }
@@ -83,7 +83,7 @@ public class SearchFragment extends Fragment {
                 transaction.replace(R.id.fragment_placeholder, weatherDetailsFragment);
                 transaction.commit();
             } else
-                Toast.makeText(getContext(), "No Cities Found", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "No Cities Found , Kindly check for right city name and internet connection", Toast.LENGTH_LONG).show();
         }
     }
 }

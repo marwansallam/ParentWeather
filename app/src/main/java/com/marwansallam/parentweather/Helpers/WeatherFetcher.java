@@ -58,7 +58,7 @@ public class WeatherFetcher {
             } catch (Throwable t) {
             }
         }
-        return null;
+        return "";
     }
 
     public String getCityByGeo(String longitude, String latitude) {
@@ -99,7 +99,7 @@ public class WeatherFetcher {
             } catch (Throwable t) {
             }
         }
-        return null;
+        return "";
     }
 
     public byte[] getImage(String code) {
